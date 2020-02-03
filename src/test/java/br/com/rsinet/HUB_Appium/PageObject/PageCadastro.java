@@ -1,5 +1,8 @@
 package br.com.rsinet.HUB_Appium.PageObject;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
@@ -17,6 +20,8 @@ public class PageCadastro {
 	}
 
 	public void clicarMenu() {
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.elementToBeClickable(botaoMenu()));
 		botaoMenu().click();
 	}
 
@@ -177,6 +182,24 @@ public class PageCadastro {
 
 	public void clicarEmCadastrar() {
 		botaoConfirmaCadastro().click();
+	}
+
+	private MobileElement avalidacaoDeSucesso() {
+		MobileElement validacao = (MobileElement) driver.findElementById("com.Advantage.aShopping:id/textViewMenuUser");
+		return validacao;
+	}
+
+	public String validaCadastro() {
+		return avalidacaoDeSucesso().getText();
+	}
+
+	private MobileElement validaUsuarioInvalido() {
+		MobileElement nomeErrado = (MobileElement) driver.findElementByXPath("//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.TextView");
+		return nomeErrado;
+	}
+
+	public String validaUsuarioErrado() {
+		return validaUsuarioInvalido().getText();
 	}
 
 }
