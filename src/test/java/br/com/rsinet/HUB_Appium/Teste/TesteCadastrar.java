@@ -2,11 +2,16 @@ package br.com.rsinet.HUB_Appium.Teste;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+
+import br.com.rsinet.HUB_Appium.ExtendReport.ExtendReport;
 import br.com.rsinet.HUB_Appium.PageObject.PageCadastro;
 import br.com.rsinet.HUB_Appium.Utility.Constant;
 import br.com.rsinet.HUB_Appium.Utility.DriverManager;
@@ -20,10 +25,16 @@ public class TesteCadastrar {
 
 	private AndroidDriver driver;
 	private PageCadastro cadastro;
-	TouchAction scroll;
-	MassaDados dados;
+	private TouchAction scroll;
+	private MassaDados dados;
+	private ExtentTest test;
 
-	@Before
+	@BeforeTest
+	public void report() {
+		ExtendReport.setExtent();
+	}
+
+	@BeforeMethod
 	public void iniciaTeste() throws Exception {
 
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Cadastro");
@@ -38,6 +49,7 @@ public class TesteCadastrar {
 	@Test
 	public void testeCadastroSucesso() throws Exception {
 
+		test = ExtendReport.createTest("CadastroSucesso");
 		cadastro.clicarMenu();
 		cadastro.clicarLogin();
 		cadastro.clicarCadastrar();
@@ -76,11 +88,12 @@ public class TesteCadastrar {
 		cadastro.clicarEmCadastrar();
 		cadastro.clicarMenu();
 
-		Assert.assertTrue("Usuário cadastrado com sucesso",cadastro.validaCadastro().equals(nomeUsuario));
+		Assert.assertTrue(cadastro.validaCadastro().equals(nomeUsuario), "Usuário cadastrado com sucesso");
 	}
 
 	@Test
 	public void testeCadastroFalha() throws Exception {
+		test = ExtendReport.createTest("CadastroFalha");
 
 		cadastro.clicarMenu();
 		cadastro.clicarLogin();
@@ -117,12 +130,13 @@ public class TesteCadastrar {
 
 		scroll.press(PointOption.point(1038, 266)).moveTo(PointOption.point(1019, 1690)).perform();
 
-		Assert.assertTrue("Falha no nome de usuário",cadastro.validaUsuarioErrado().equals("Use up to 15 characters"));
+		Assert.assertTrue(cadastro.validaUsuarioErrado().equals("Use up to 15 characters"), "Falha no nome de usuário");
 	}
 
-	@After
-	public void finalizaTeste() {
-
+	@AfterMethod
+	public void finalizaTeste(ITestResult result) throws Exception {
+		ExtendReport.tearDown(result, test, driver);
+		ExtendReport.endReport();
 		DriverManager.closeApp(driver);
 
 	}
