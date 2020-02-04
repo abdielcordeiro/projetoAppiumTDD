@@ -16,7 +16,7 @@ public class DriverManager {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
 		capabilities.setCapability("deviceName", "Moto G5 Plus");
-		capabilities.setCapability("udid", "10.1.0.90:5656");
+		capabilities.setCapability("udid", "emulator-5554");
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("appPackage", pacote);
 		capabilities.setCapability("appActivity", ativador);

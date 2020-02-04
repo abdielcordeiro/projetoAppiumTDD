@@ -123,7 +123,6 @@ public class PageCadastro {
 		inserirNumeroTelefone().sendKeys(numero);
 	}
 
-
 	private MobileElement botaoLocalizacao() {
 		MobileElement localizacao = (MobileElement) driver.findElementById("com.Advantage.aShopping:id/switchLocation");
 		return localizacao;
@@ -194,7 +193,8 @@ public class PageCadastro {
 	}
 
 	private MobileElement validaUsuarioInvalido() {
-		MobileElement nomeErrado = (MobileElement) driver.findElementByXPath("//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.TextView");
+		MobileElement nomeErrado = (MobileElement) driver.findElementByXPath(
+				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.TextView");
 		return nomeErrado;
 	}
 

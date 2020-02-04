@@ -23,4 +23,10 @@ public class Constant {
 	public static final int Cidade = 5;
 
 
+	/*
+	 * Busca por Produto
+	 */
+	public static final int NomeProduto = 1;
+	public static final int NomeProdutoFalha = 1;
+
 }

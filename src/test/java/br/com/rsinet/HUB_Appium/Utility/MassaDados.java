@@ -5,7 +5,7 @@ import java.util.Random;
 public class MassaDados {
 
 	private int linha = 1;
-	// private static int linhaFalha = 6;
+	private static int linhaFalha = 9;
 
 	public void proximaLinha() {
 		this.linha += 1;
@@ -49,17 +49,19 @@ public class MassaDados {
 		return ExcelUtils.getCellDataString(linha, Constant.Cidade);
 	}
 
+	public String getNomeProduto() throws Exception {
+		return ExcelUtils.getCellDataString(linha, Constant.NomeProduto);
+	}
+
+	public String getNomeProdutoFalha() throws Exception {
+		return ExcelUtils.getCellDataString(linhaFalha, Constant.NomeProdutoFalha);
+	}
+
 //	public String getTipoProduto() throws Exception {
 //		return ExcelUtils.getCellDataString(linha, Constant.TipoProduto);
 //	}
 //
-//	public String getNomeProduto() throws Exception {
-//		return ExcelUtils.getCellDataString(linha, Constant.NomeProduto);
-//	}
 //
-//	public String getNomeProdutoFalha() throws Exception {
-//		return ExcelUtils.getCellDataString(linhaFalha, Constant.NomeProdutoFalha);
-//	}
 //
 //	public Integer getQuantidadeProduto() throws Exception {
 //		return Integer.valueOf(ExcelUtils.getCellDataNumber(linha, Constant.QuantidadeProduto));
