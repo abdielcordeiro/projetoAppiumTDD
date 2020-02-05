@@ -18,13 +18,14 @@ import br.com.rsinet.HUB_Appium.Utility.Constant;
 import br.com.rsinet.HUB_Appium.Utility.DriverManager;
 import br.com.rsinet.HUB_Appium.Utility.ExcelUtils;
 import br.com.rsinet.HUB_Appium.Utility.MassaDados;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.offset.PointOption;
 
 public class TesteCadastrar {
 
-	private AndroidDriver driver;
+	private AndroidDriver<MobileElement> driver;
 	private PageCadastro cadastro;
 	private TouchAction scroll;
 	private MassaDados dados;
@@ -138,13 +139,13 @@ public class TesteCadastrar {
 	}
 
 	@AfterMethod
-	public void finalizaTeste(){
+	public void finalizaTeste(ITestResult result) throws Exception{
+		ExtendReport.tearDown(result, test, driver);
 		DriverManager.closeApp(driver);
 	}
 
 	@AfterTest
-	public void finalizaReporte(ITestResult result) throws Exception {
-		ExtendReport.tearDown(result, test, driver);
+	public void finalizaReporte(){
 		ExtendReport.endReport();
 	}
 

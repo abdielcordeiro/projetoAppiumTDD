@@ -8,14 +8,14 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class PageBusca {
 
-	private AndroidDriver driver;
+	private AndroidDriver<MobileElement> driver;
 
-	public PageBusca(AndroidDriver driver) {
+	public PageBusca(AndroidDriver<MobileElement> driver) {
 		this.driver = driver;
 	}
 
 	private MobileElement botaoLupa() {
-		MobileElement bntLupa = (MobileElement) driver.findElementById("com.Advantage.aShopping:id/imageViewSearch");
+		MobileElement bntLupa = driver.findElementById("com.Advantage.aShopping:id/imageViewSearch");
 		return bntLupa;
 	}
 
@@ -24,7 +24,7 @@ public class PageBusca {
 	}
 
 	private MobileElement escreverBusca() {
-		MobileElement escLupa = (MobileElement) driver.findElementById("com.Advantage.aShopping:id/editTextSearch");
+		MobileElement escLupa = driver.findElementById("com.Advantage.aShopping:id/editTextSearch");
 		return escLupa;
 	}
 
@@ -33,7 +33,7 @@ public class PageBusca {
 	}
 
 	private MobileElement clicarProduto() {
-		MobileElement apertarProduto = (MobileElement) driver
+		MobileElement apertarProduto = driver
 				.findElementById("com.Advantage.aShopping:id/imageViewProduct");
 		return apertarProduto;
 	}
@@ -47,7 +47,7 @@ public class PageBusca {
 		wait.until(ExpectedConditions.textToBePresentInElement(
 				driver.findElementById("com.Advantage.aShopping:id/textViewProductName"), nome));
 
-		MobileElement el2 = (MobileElement) driver.findElementById("com.Advantage.aShopping:id/textViewProductName");
+		MobileElement el2 = driver.findElementById("com.Advantage.aShopping:id/textViewProductName");
 		return el2;
 	}
 
@@ -56,7 +56,7 @@ public class PageBusca {
 	}
 
 	private MobileElement verificarNomeProdutoFalha() {
-		MobileElement el1 = (MobileElement) driver
+		MobileElement el1 = driver
 				.findElementById("com.Advantage.aShopping:id/textViewNoProductsToShow");
 		return el1;
 	}
@@ -66,7 +66,7 @@ public class PageBusca {
 	}
 
 	private MobileElement escolherTipo(String tipo) {
-		MobileElement el2 = (MobileElement) driver
+		MobileElement el2 = driver
 				.findElementByXPath("//android.widget.TextView[starts-with(@text, '" + tipo + "')]");
 		return el2;
 	}
@@ -76,7 +76,7 @@ public class PageBusca {
 	}
 
 	private MobileElement escolherProduto(String produto) {
-		MobileElement el2 = (MobileElement) driver
+		MobileElement el2 = driver
 				.findElementByXPath("//android.widget.TextView[starts-with(@text, '" + produto + "')]");
 		return el2;
 	}
@@ -86,7 +86,7 @@ public class PageBusca {
 	}
 
 	private MobileElement bntAdicionar() {
-		MobileElement el1 = (MobileElement) driver
+		MobileElement el1 = driver
 				.findElementById("com.Advantage.aShopping:id/linearLayoutProductQuantity");
 		return el1;
 	}
@@ -96,7 +96,7 @@ public class PageBusca {
 	}
 
 	private MobileElement bntMais() {
-		MobileElement el2 = (MobileElement) driver.findElementByXPath(
+		MobileElement el2 = driver.findElementByXPath(
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.ImageView[2]");
 		return el2;
 	}
@@ -106,7 +106,7 @@ public class PageBusca {
 	}
 
 	private MobileElement bntApply() {
-		MobileElement el1 = (MobileElement) driver.findElementById("com.Advantage.aShopping:id/textViewApply");
+		MobileElement el1 = driver.findElementById("com.Advantage.aShopping:id/textViewApply");
 		return el1;
 	}
 
@@ -115,7 +115,7 @@ public class PageBusca {
 	}
 
 	private MobileElement bntAddCarinho() {
-		MobileElement el2 = (MobileElement) driver.findElementById("com.Advantage.aShopping:id/buttonProductAddToCart");
+		MobileElement el2 = driver.findElementById("com.Advantage.aShopping:id/buttonProductAddToCart");
 		return el2;
 	}
 
@@ -124,7 +124,7 @@ public class PageBusca {
 	}
 
 	private MobileElement inputLogin() {
-		MobileElement el3 = (MobileElement) driver.findElementByXPath(
+		MobileElement el3 = driver.findElementByXPath(
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout[3]/android.widget.EditText");
 		return el3;
 	}
@@ -135,7 +135,7 @@ public class PageBusca {
 	}
 
 	private MobileElement inputSenha() {
-		MobileElement el1 = (MobileElement) driver.findElementByXPath(
+		MobileElement el1 = driver.findElementByXPath(
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout[4]/android.widget.EditText");
 		return el1;
 	}
@@ -146,7 +146,7 @@ public class PageBusca {
 	}
 
 	private MobileElement bntLogar() {
-		MobileElement el2 = (MobileElement) driver.findElementById("com.Advantage.aShopping:id/buttonLogin");
+		MobileElement el2 = driver.findElementById("com.Advantage.aShopping:id/buttonLogin");
 		return el2;
 	}
 
@@ -155,7 +155,7 @@ public class PageBusca {
 	}
 
 	private MobileElement bntDedo() {
-		MobileElement el2 = (MobileElement) driver.findElementById("android:id/button2");
+		MobileElement el2 = driver.findElementById("android:id/button2");
 		return el2;
 	}
 
@@ -166,7 +166,7 @@ public class PageBusca {
 	}
 
 	private MobileElement bntEntrarCarinho() {
-		MobileElement el1 = (MobileElement) driver.findElementById("com.Advantage.aShopping:id/imageViewCart");
+		MobileElement el1 = driver.findElementById("com.Advantage.aShopping:id/imageViewCart");
 		return el1;
 	}
 
@@ -175,7 +175,7 @@ public class PageBusca {
 	}
 
 	private MobileElement validaQnt(){
-		MobileElement el2 = (MobileElement) driver.findElementById("com.Advantage.aShopping:id/textViewCartQuantity");
+		MobileElement el2 = driver.findElementById("com.Advantage.aShopping:id/textViewCartQuantity");
 		return el2;
 	}
 

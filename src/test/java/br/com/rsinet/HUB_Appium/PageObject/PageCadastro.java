@@ -8,14 +8,14 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class PageCadastro {
 
-	private AndroidDriver driver;
+	private AndroidDriver<MobileElement> driver;
 
-	public PageCadastro(AndroidDriver driver) {
+	public PageCadastro(AndroidDriver<MobileElement> driver) {
 		this.driver = driver;
 	}
 
 	private MobileElement botaoMenu() {
-		MobileElement bntMenu = (MobileElement) driver.findElementById("com.Advantage.aShopping:id/imageViewMenu");
+		MobileElement bntMenu = driver.findElementById("com.Advantage.aShopping:id/imageViewMenu");
 		return bntMenu;
 	}
 
@@ -26,7 +26,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement botaoLogin() {
-		MobileElement bntLogin = (MobileElement) driver.findElementByXPath(
+		MobileElement bntLogin = driver.findElementByXPath(
 				"//android.support.v4.widget.DrawerLayout[@content-desc=\"Main Menu\"]/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout");
 		return bntLogin;
 	}
@@ -36,7 +36,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement botaoCadastrar() {
-		MobileElement bntCadastrar = (MobileElement) driver
+		MobileElement bntCadastrar = driver
 				.findElementById("com.Advantage.aShopping:id/textViewDontHaveAnAccount");
 		return bntCadastrar;
 	}
@@ -46,7 +46,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement inserirNomeUsuario() {
-		MobileElement nomeUsuario = (MobileElement) driver.findElementByXPath(
+		MobileElement nomeUsuario = driver.findElementByXPath(
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.EditText");
 		return nomeUsuario;
 	}
@@ -57,7 +57,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement inserirEmail() {
-		MobileElement inserirEmail = (MobileElement) driver.findElementByXPath(
+		MobileElement inserirEmail = driver.findElementByXPath(
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.EditText");
 		return inserirEmail;
 	}
@@ -68,7 +68,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement inserirSenha() {
-		MobileElement senha = (MobileElement) driver.findElementByXPath(
+		MobileElement senha = driver.findElementByXPath(
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.EditText");
 		return senha;
 	}
@@ -79,7 +79,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement inserirConfirmacaoSenha() {
-		MobileElement confirmacaoSenha = (MobileElement) driver.findElementByXPath(
+		MobileElement confirmacaoSenha = driver.findElementByXPath(
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.EditText");
 		return confirmacaoSenha;
 	}
@@ -90,7 +90,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement inserirPrimeiroNome() {
-		MobileElement primeiroNome = (MobileElement) driver.findElementByXPath(
+		MobileElement primeiroNome = driver.findElementByXPath(
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.EditText");
 		return primeiroNome;
 	}
@@ -101,7 +101,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement inserirUltimoNome() {
-		MobileElement ultimoNome = (MobileElement) driver.findElementByXPath(
+		MobileElement ultimoNome = driver.findElementByXPath(
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.EditText");
 		return ultimoNome;
 	}
@@ -112,7 +112,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement inserirNumeroTelefone() {
-		MobileElement numeroTelefone = (MobileElement) driver.findElementByXPath(
+		MobileElement numeroTelefone = driver.findElementByXPath(
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.EditText");
 
 		return numeroTelefone;
@@ -124,7 +124,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement botaoLocalizacao() {
-		MobileElement localizacao = (MobileElement) driver.findElementById("com.Advantage.aShopping:id/switchLocation");
+		MobileElement localizacao = driver.findElementById("com.Advantage.aShopping:id/switchLocation");
 		return localizacao;
 	}
 
@@ -133,7 +133,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement botaoConfirmaLocalizacao() {
-		MobileElement confLocation = (MobileElement) driver
+		MobileElement confLocation = driver
 				.findElementById("com.android.packageinstaller:id/permission_allow_button");
 		return confLocation;
 	}
@@ -143,7 +143,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement inserirCidade() {
-		MobileElement cidade = (MobileElement) driver.findElementByXPath(
+		MobileElement cidade = driver.findElementByXPath(
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout[1]/android.widget.EditText");
 		return cidade;
 	}
@@ -154,7 +154,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement botaoPais() {
-		MobileElement botaoPais = (MobileElement) driver
+		MobileElement botaoPais = driver
 				.findElementById("com.Advantage.aShopping:id/linearLayoutCountry");
 		return botaoPais;
 	}
@@ -164,7 +164,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement confirmaPais() {
-		MobileElement confirmaPais = (MobileElement) driver.findElementByXPath(
+		MobileElement confirmaPais = driver.findElementByXPath(
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[6]");
 		return confirmaPais;
 	}
@@ -174,7 +174,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement botaoConfirmaCadastro() {
-		MobileElement botaoConfirmaCadastro = (MobileElement) driver
+		MobileElement botaoConfirmaCadastro = driver
 				.findElementById("com.Advantage.aShopping:id/buttonRegister");
 		return botaoConfirmaCadastro;
 	}
@@ -184,7 +184,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement avalidacaoDeSucesso() {
-		MobileElement validacao = (MobileElement) driver.findElementById("com.Advantage.aShopping:id/textViewMenuUser");
+		MobileElement validacao = driver.findElementById("com.Advantage.aShopping:id/textViewMenuUser");
 		return validacao;
 	}
 
@@ -193,7 +193,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement validaUsuarioInvalido() {
-		MobileElement nomeErrado = (MobileElement) driver.findElementByXPath(
+		MobileElement nomeErrado = driver.findElementByXPath(
 				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.TextView");
 		return nomeErrado;
 	}

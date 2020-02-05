@@ -3,8 +3,8 @@
 	<test name="Automação Mobile Utilizando TDD">
 		<classes>
 			<class name="br.com.rsinet.HUB_Appium.Teste.TesteCadastrar" />
-			<class name="br.com.rsinet.HUB_TDD.Teste.TesteBuscaClique" />
-			<class name="br.com.rsinet.HUB_TDD.Teste.TesteBuscaLupa" />
+			<class name="br.com.rsinet.HUB_Appium.Teste.TesteBuscaClique" />
+			<class name="br.com.rsinet.HUB_Appium.Teste.TesteBuscaLupa" />
 		</classes>
 	</test>
 </suite>

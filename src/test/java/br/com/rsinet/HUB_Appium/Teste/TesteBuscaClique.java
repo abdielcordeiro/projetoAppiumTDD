@@ -38,7 +38,7 @@ public class TesteBuscaClique {
 		ExtendReport.setExtent();
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@BeforeMethod
 	public void iniciaTeste() throws Exception {
 
@@ -99,14 +99,12 @@ public class TesteBuscaClique {
 
 		busca.entrarNoCarrinho();
 
-		System.out.println(busca.validarQuantidadeProduto());
-		System.out.println(dados.getQuantidadeProduto());
-
 		Assert.assertTrue(busca.validarQuantidadeProduto() != dados.getQuantidadeProduto(),
 				"Quantidade diferente da quantidade pedida");
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@AfterMethod
 	public void finalizaTeste(ITestResult result) throws Exception {
 		ExtendReport.tearDown(result, test, driver);

@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -17,12 +18,13 @@ import br.com.rsinet.HUB_Appium.Utility.Constant;
 import br.com.rsinet.HUB_Appium.Utility.DriverManager;
 import br.com.rsinet.HUB_Appium.Utility.ExcelUtils;
 import br.com.rsinet.HUB_Appium.Utility.MassaDados;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 
 public class TesteBuscaLupa {
 
-	private AndroidDriver driver;
+	private AndroidDriver<MobileElement> driver;
 	private PageBusca busca;
 	private TouchAction scroll;
 	private MassaDados dados;
@@ -59,8 +61,6 @@ public class TesteBuscaLupa {
 		Assert.assertTrue(busca.retornaNomeProduto(dados.getNomeProduto().toUpperCase()).equals(dados.getNomeProduto().toUpperCase()),
 				"Produto encontrado com sucesso");
 
-		System.out.println("Finalizando o teste!!!");
-
 	}
 
 	@Test
@@ -80,8 +80,12 @@ public class TesteBuscaLupa {
 	@AfterMethod
 	public void finalizaTeste(ITestResult result) throws Exception {
 		ExtendReport.tearDown(result, test, driver);
-		ExtendReport.endReport();
 		DriverManager.closeApp(driver);
+	}
+
+	@AfterTest
+	public void finalizaReport(){
+		ExtendReport.endReport();
 	}
 
 }
