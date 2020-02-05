@@ -15,12 +15,13 @@ public class Constant {
 	/*
 	 * Cadastrar novo Usuário
 	 */
-	public static final int Senha = 0;
-	public static final int Email = 1;
-	public static final int PrimeiroNome = 2;
-	public static final int UltimoNome = 3;
-	public static final int NumeroTelefone = 4;
-	public static final int Cidade = 5;
+	public static final int Usuario = 0;
+	public static final int Senha = 1;
+	public static final int Email = 2;
+	public static final int PrimeiroNome = 3;
+	public static final int UltimoNome = 4;
+	public static final int NumeroTelefone = 5;
+	public static final int Cidade = 6;
 
 
 	/*
@@ -28,5 +29,7 @@ public class Constant {
 	 */
 	public static final int NomeProduto = 1;
 	public static final int NomeProdutoFalha = 1;
+	public static final int TipoProduto = 0;
+	public static final int QuantidadeProduto = 6;
 
 }

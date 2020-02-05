@@ -4,11 +4,20 @@ import java.util.Random;
 
 public class MassaDados {
 
-	private int linha = 1;
+	private int linhaTipo = 2;
+	private int linhaCadastro = 1;
 	private static int linhaFalha = 9;
 
 	public void proximaLinha() {
-		this.linha += 1;
+		this.linhaCadastro += 1;
+	}
+
+	public void setNomeUsuario(String nome) throws Exception {
+		ExcelUtils.setCellData(nome, linhaCadastro, Constant.Usuario);
+	}
+
+	public String getNomeUsuarioExcel() throws Exception {
+		return ExcelUtils.getCellDataString(linhaCadastro, Constant.Usuario);
 	}
 
 	public String getNomeUsuario(int quantidadeLetra) {
@@ -26,45 +35,43 @@ public class MassaDados {
 	}
 
 	public String getSenha() throws Exception {
-		return ExcelUtils.getCellDataString(linha, Constant.Senha);
+		return ExcelUtils.getCellDataString(linhaCadastro, Constant.Senha);
 	}
 
 	public String getEmail() throws Exception {
-		return ExcelUtils.getCellDataString(linha, Constant.Email);
+		return ExcelUtils.getCellDataString(linhaCadastro, Constant.Email);
 	}
 
 	public String getPrimeiroNome() throws Exception {
-		return ExcelUtils.getCellDataString(linha, Constant.PrimeiroNome);
+		return ExcelUtils.getCellDataString(linhaCadastro, Constant.PrimeiroNome);
 	}
 
 	public String getUltimoNome() throws Exception {
-		return ExcelUtils.getCellDataString(linha, Constant.UltimoNome);
+		return ExcelUtils.getCellDataString(linhaCadastro, Constant.UltimoNome);
 	}
 
 	public String getNumeroTelefone() throws Exception {
-		return ExcelUtils.getCellDataString(linha, Constant.NumeroTelefone);
+		return ExcelUtils.getCellDataString(linhaCadastro, Constant.NumeroTelefone);
 	}
 
 	public String getCidade() throws Exception {
-		return ExcelUtils.getCellDataString(linha, Constant.Cidade);
+		return ExcelUtils.getCellDataString(linhaCadastro, Constant.Cidade);
 	}
 
 	public String getNomeProduto() throws Exception {
-		return ExcelUtils.getCellDataString(linha, Constant.NomeProduto);
+		return ExcelUtils.getCellDataString(linhaTipo, Constant.NomeProduto);
 	}
 
 	public String getNomeProdutoFalha() throws Exception {
 		return ExcelUtils.getCellDataString(linhaFalha, Constant.NomeProdutoFalha);
 	}
 
-//	public String getTipoProduto() throws Exception {
-//		return ExcelUtils.getCellDataString(linha, Constant.TipoProduto);
-//	}
-//
-//
-//
-//	public Integer getQuantidadeProduto() throws Exception {
-//		return Integer.valueOf(ExcelUtils.getCellDataNumber(linha, Constant.QuantidadeProduto));
-//	}
+	public String getTipoProduto() throws Exception {
+		return ExcelUtils.getCellDataString(linhaTipo, Constant.TipoProduto);
+	}
+
+	public Integer getQuantidadeProduto() throws Exception {
+		return Integer.valueOf(ExcelUtils.getCellDataNumber(linhaCadastro, Constant.QuantidadeProduto));
+	}
 
 }

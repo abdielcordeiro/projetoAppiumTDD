@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -55,6 +56,7 @@ public class TesteCadastrar {
 		cadastro.clicarCadastrar();
 
 		String nomeUsuario = dados.getNomeUsuario(6);
+		dados.setNomeUsuario(nomeUsuario);
 		cadastro.preencherNomeDeUsuario(nomeUsuario);
 		cadastro.preencherEmail(dados.getEmail());
 		cadastro.preencherSenha(dados.getSenha());
@@ -128,17 +130,22 @@ public class TesteCadastrar {
 
 		cadastro.clicarConfirmaPais();
 
+
+		scroll.press(PointOption.point(1038, 266)).moveTo(PointOption.point(1019, 1690)).perform();
 		scroll.press(PointOption.point(1038, 266)).moveTo(PointOption.point(1019, 1690)).perform();
 
 		Assert.assertTrue(cadastro.validaUsuarioErrado().equals("Use up to 15 characters"), "Falha no nome de usuário");
 	}
 
 	@AfterMethod
-	public void finalizaTeste(ITestResult result) throws Exception {
+	public void finalizaTeste(){
+		DriverManager.closeApp(driver);
+	}
+
+	@AfterTest
+	public void finalizaReporte(ITestResult result) throws Exception {
 		ExtendReport.tearDown(result, test, driver);
 		ExtendReport.endReport();
-		DriverManager.closeApp(driver);
-
 	}
 
 }
