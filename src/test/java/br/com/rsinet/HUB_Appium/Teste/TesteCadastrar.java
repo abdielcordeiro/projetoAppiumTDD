@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentTest;
 
 import br.com.rsinet.HUB_Appium.ExtendReport.ExtendReport;
-import br.com.rsinet.HUB_Appium.PageObject.PageCadastro;
+import br.com.rsinet.HUB_Appium.ScreenObject.PageCadastro;
 import br.com.rsinet.HUB_Appium.Utility.Constant;
 import br.com.rsinet.HUB_Appium.Utility.DriverManager;
 import br.com.rsinet.HUB_Appium.Utility.ExcelUtils;
