@@ -104,7 +104,6 @@ public class TesteBuscaClique {
 
 	}
 
-	@SuppressWarnings("unchecked")
 	@AfterMethod
 	public void finalizaTeste(ITestResult result) throws Exception {
 		ExtendReport.tearDown(result, test, driver);

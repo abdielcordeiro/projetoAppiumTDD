@@ -48,5 +48,14 @@
 			<version>2.4</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.0.0</version>
+		</dependency>
+
+
+
 	</dependencies>
 </project>
