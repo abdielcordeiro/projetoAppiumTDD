@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite de Teste">
+	<test name="Automação Mobile Utilizando TDD">
+		<classes>
+			<class name="br.com.rsinet.hub.appium.Teste.TesteCadastrar" />
+			<class name="br.com.rsinet.hub.appium.Teste.TesteBuscaClique" />
+			<class name="br.com.rsinet.hub.appium.Teste.TesteBuscaLupa" />
+		</classes>
+	</test>
+</suite>

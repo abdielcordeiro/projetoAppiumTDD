@@ -1,4 +1,4 @@
-package br.com.rsinet.HUB_Appium.Teste;
+package br.com.rsinet.hub.appium.Teste;
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,24 +12,21 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 
-import br.com.rsinet.HUB_Appium.ExtendReport.ExtendReport;
-import br.com.rsinet.HUB_Appium.ScreenObject.PageBusca;
-import br.com.rsinet.HUB_Appium.ScreenObject.PageCadastro;
-import br.com.rsinet.HUB_Appium.Utility.Constant;
-import br.com.rsinet.HUB_Appium.Utility.DriverManager;
-import br.com.rsinet.HUB_Appium.Utility.ExcelUtils;
-import br.com.rsinet.HUB_Appium.Utility.MassaDados;
-import io.appium.java_client.TouchAction;
+import br.com.rsinet.hub.appium.ExtendReport.ExtendReport;
+import br.com.rsinet.hub.appium.ScreenObject.PageBusca;
+import br.com.rsinet.hub.appium.ScreenObject.PageCadastro;
+import br.com.rsinet.hub.appium.Utility.Constant;
+import br.com.rsinet.hub.appium.Utility.DriverManager;
+import br.com.rsinet.hub.appium.Utility.ExcelUtils;
+import br.com.rsinet.hub.appium.Utility.MassaDados;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public class TesteBuscaClique {
 
-	@SuppressWarnings("rawtypes")
-	private AndroidDriver driver;
+	private AndroidDriver<MobileElement> driver;
 	private PageBusca busca;
 	private PageCadastro cadastro;
-	@SuppressWarnings({ "rawtypes", "unused" })
-	private TouchAction scroll;
 	private MassaDados dados;
 	private ExtentTest test;
 
@@ -38,7 +35,6 @@ public class TesteBuscaClique {
 		ExtendReport.setExtent();
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@BeforeMethod
 	public void iniciaTeste() throws Exception {
 
@@ -48,7 +44,6 @@ public class TesteBuscaClique {
 
 		busca = new PageBusca(driver);
 		cadastro = new PageCadastro(driver);
-		scroll = new TouchAction(driver);
 		dados = new MassaDados();
 	}
 

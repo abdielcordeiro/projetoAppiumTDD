@@ -1,4 +1,4 @@
-package br.com.rsinet.HUB_Appium.ExtendReport;
+package br.com.rsinet.hub.appium.ExtendReport;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,7 +12,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-import br.com.rsinet.HUB_Appium.Utility.print;
+import br.com.rsinet.hub.appium.Utility.print;
 
 public class ExtendReport {
 

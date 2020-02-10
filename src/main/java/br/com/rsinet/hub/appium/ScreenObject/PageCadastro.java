@@ -1,4 +1,6 @@
-package br.com.rsinet.HUB_Appium.ScreenObject;
+package br.com.rsinet.hub.appium.ScreenObject;
+
+import java.util.List;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,7 +22,7 @@ public class PageCadastro {
 	}
 
 	public void clicarMenu() {
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, 40);
 		wait.until(ExpectedConditions.elementToBeClickable(botaoMenu()));
 		botaoMenu().click();
 	}
@@ -36,8 +38,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement botaoCadastrar() {
-		MobileElement bntCadastrar = driver
-				.findElementById("com.Advantage.aShopping:id/textViewDontHaveAnAccount");
+		MobileElement bntCadastrar = driver.findElementById("com.Advantage.aShopping:id/textViewDontHaveAnAccount");
 		return bntCadastrar;
 	}
 
@@ -79,9 +80,9 @@ public class PageCadastro {
 	}
 
 	private MobileElement inserirConfirmacaoSenha() {
-		MobileElement confirmacaoSenha = driver.findElementByXPath(
-				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.EditText");
-		return confirmacaoSenha;
+		List<MobileElement> els1 = driver.findElementsByXPath(
+				"//android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.EditText");
+		return els1.get(3);
 	}
 
 	public void preencherConfirmacaoSenha(String confirmaSenha) {
@@ -90,9 +91,8 @@ public class PageCadastro {
 	}
 
 	private MobileElement inserirPrimeiroNome() {
-		MobileElement primeiroNome = driver.findElementByXPath(
-				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.EditText");
-		return primeiroNome;
+		List<MobileElement> els1 = driver.findElementsByXPath("//android.widget.RelativeLayout[1]/android.widget.EditText");
+		return els1.get(0);
 	}
 
 	public void preencherPrimeiroNome(String primeiroNome) {
@@ -101,9 +101,8 @@ public class PageCadastro {
 	}
 
 	private MobileElement inserirUltimoNome() {
-		MobileElement ultimoNome = driver.findElementByXPath(
-				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.EditText");
-		return ultimoNome;
+		List<MobileElement> els1 = driver.findElementsByXPath("//android.widget.RelativeLayout[2]/android.widget.EditText");
+		return els1.get(0);
 	}
 
 	public void preencherUltimoNome(String ultimoNome) {
@@ -112,10 +111,8 @@ public class PageCadastro {
 	}
 
 	private MobileElement inserirNumeroTelefone() {
-		MobileElement numeroTelefone = driver.findElementByXPath(
-				"//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.EditText");
-
-		return numeroTelefone;
+		List<MobileElement> els1 = driver.findElementsByXPath("//android.widget.RelativeLayout/android.widget.EditText");
+		return els1.get(2);
 	}
 
 	public void preencherNumeroTelefone(String numero) {
@@ -133,8 +130,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement botaoConfirmaLocalizacao() {
-		MobileElement confLocation = driver
-				.findElementById("com.android.packageinstaller:id/permission_allow_button");
+		MobileElement confLocation = driver.findElementById("com.android.packageinstaller:id/permission_allow_button");
 		return confLocation;
 	}
 
@@ -149,13 +145,13 @@ public class PageCadastro {
 	}
 
 	public void preencherCidade(String cidade) {
+		inserirCidade().clear();
 		inserirCidade().click();
 		inserirCidade().sendKeys(cidade);
 	}
 
 	private MobileElement botaoPais() {
-		MobileElement botaoPais = driver
-				.findElementById("com.Advantage.aShopping:id/linearLayoutCountry");
+		MobileElement botaoPais = driver.findElementById("com.Advantage.aShopping:id/linearLayoutCountry");
 		return botaoPais;
 	}
 
@@ -174,8 +170,7 @@ public class PageCadastro {
 	}
 
 	private MobileElement botaoConfirmaCadastro() {
-		MobileElement botaoConfirmaCadastro = driver
-				.findElementById("com.Advantage.aShopping:id/buttonRegister");
+		MobileElement botaoConfirmaCadastro = driver.findElementById("com.Advantage.aShopping:id/buttonRegister");
 		return botaoConfirmaCadastro;
 	}
 
@@ -201,5 +196,19 @@ public class PageCadastro {
 	public String validaUsuarioErrado() {
 		return validaUsuarioInvalido().getText();
 	}
+
+	public void scrollAndClick(String esperado) {
+		driver.findElementByAndroidUIAutomator(
+				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
+						+ esperado + "\").instance(0))")
+				.click();
+	}
+
+	public void scrollVisible(String esperado) {
+		driver.findElementByAndroidUIAutomator(
+				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
+						+ esperado + "\").instance(0))");
+	}
+
 
 }

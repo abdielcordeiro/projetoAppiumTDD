@@ -1,4 +1,4 @@
-package br.com.rsinet.HUB_Appium.Utility;
+package br.com.rsinet.hub.appium.Utility;
 
 public class Constant {
 
@@ -8,7 +8,7 @@ public class Constant {
 
 	public static final String Ativador = ".SplashActivity";
 
-	public static final String Path_TestData = "..\\projetoAppiumTDD\\src\\test\\java\\br\\com\\rsinet\\HUB_Appium\\TestData\\";
+	public static final String Path_TestData = "D:\\Documentos\\eclipseWorkespace\\projetoAppiumTDD\\src\\main\\java\\br\\com\\rsinet\\hub\\appium\\TestData\\";
 
 	public static final String File_TestData = "BancoDados.xlsx";
 

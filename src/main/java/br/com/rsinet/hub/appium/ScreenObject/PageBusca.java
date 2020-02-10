@@ -1,4 +1,4 @@
-package br.com.rsinet.HUB_Appium.ScreenObject;
+package br.com.rsinet.hub.appium.ScreenObject;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,8 +33,7 @@ public class PageBusca {
 	}
 
 	private MobileElement clicarProduto() {
-		MobileElement apertarProduto = driver
-				.findElementById("com.Advantage.aShopping:id/imageViewProduct");
+		MobileElement apertarProduto = driver.findElementById("com.Advantage.aShopping:id/imageViewProduct");
 		return apertarProduto;
 	}
 
@@ -43,7 +42,7 @@ public class PageBusca {
 	}
 
 	private MobileElement verificarNomeProduto(String nome) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, 40);
 		wait.until(ExpectedConditions.textToBePresentInElement(
 				driver.findElementById("com.Advantage.aShopping:id/textViewProductName"), nome));
 
@@ -56,8 +55,7 @@ public class PageBusca {
 	}
 
 	private MobileElement verificarNomeProdutoFalha() {
-		MobileElement el1 = driver
-				.findElementById("com.Advantage.aShopping:id/textViewNoProductsToShow");
+		MobileElement el1 = driver.findElementById("com.Advantage.aShopping:id/textViewNoProductsToShow");
 		return el1;
 	}
 
@@ -66,12 +64,12 @@ public class PageBusca {
 	}
 
 	private MobileElement escolherTipo(String tipo) {
-		MobileElement el2 = driver
-				.findElementByXPath("//android.widget.TextView[starts-with(@text, '" + tipo + "')]");
+		MobileElement el2 = driver.findElementByXPath("//android.widget.TextView[starts-with(@text, '" + tipo + "')]");
 		return el2;
 	}
 
-	public void selecionaTipo(String tipo) {
+	public void selecionaTipo(String tipo) throws InterruptedException {
+		Thread.sleep(1000);
 		escolherTipo(tipo).click();
 	}
 
@@ -86,8 +84,7 @@ public class PageBusca {
 	}
 
 	private MobileElement bntAdicionar() {
-		MobileElement el1 = driver
-				.findElementById("com.Advantage.aShopping:id/linearLayoutProductQuantity");
+		MobileElement el1 = driver.findElementById("com.Advantage.aShopping:id/linearLayoutProductQuantity");
 		return el1;
 	}
 
@@ -159,9 +156,11 @@ public class PageBusca {
 		return el2;
 	}
 
-	public void clicarAutenticacaoDedo() {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.elementToBeClickable(bntDedo()));
+	/**
+	 * Corrigir o Thread Sleep
+	 */
+	public void clicarAutenticacaoDedo() throws InterruptedException {
+		Thread.sleep(1000);
 		bntDedo().click();
 	}
 
@@ -174,7 +173,7 @@ public class PageBusca {
 		bntEntrarCarinho().click();
 	}
 
-	private MobileElement validaQnt(){
+	private MobileElement validaQnt() {
 		MobileElement el2 = driver.findElementById("com.Advantage.aShopping:id/textViewCartQuantity");
 		return el2;
 	}
@@ -182,5 +181,4 @@ public class PageBusca {
 	public int validarQuantidadeProduto() {
 		return Integer.parseInt(validaQnt().getText());
 	}
-
 }

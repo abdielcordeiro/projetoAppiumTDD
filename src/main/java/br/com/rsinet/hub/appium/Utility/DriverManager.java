@@ -1,4 +1,4 @@
-package br.com.rsinet.HUB_Appium.Utility;
+package br.com.rsinet.hub.appium.Utility;
 
 import java.net.URL;
 
@@ -17,7 +17,7 @@ public class DriverManager {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
 		capabilities.setCapability("deviceName", "Moto G5 Plus");
-		capabilities.setCapability("udid", "192.168.137.247:5656");
+		capabilities.setCapability("udid", "192.168.0.29:5656");
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("appPackage", pacote);
 		capabilities.setCapability("appActivity", ativador);

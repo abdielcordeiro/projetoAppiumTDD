@@ -1,4 +1,4 @@
-package br.com.rsinet.HUB_Appium.Teste;
+package br.com.rsinet.hub.appium.Teste;
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,22 +12,19 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 
-import br.com.rsinet.HUB_Appium.ExtendReport.ExtendReport;
-import br.com.rsinet.HUB_Appium.ScreenObject.PageCadastro;
-import br.com.rsinet.HUB_Appium.Utility.Constant;
-import br.com.rsinet.HUB_Appium.Utility.DriverManager;
-import br.com.rsinet.HUB_Appium.Utility.ExcelUtils;
-import br.com.rsinet.HUB_Appium.Utility.MassaDados;
+import br.com.rsinet.hub.appium.ExtendReport.ExtendReport;
+import br.com.rsinet.hub.appium.ScreenObject.PageCadastro;
+import br.com.rsinet.hub.appium.Utility.Constant;
+import br.com.rsinet.hub.appium.Utility.DriverManager;
+import br.com.rsinet.hub.appium.Utility.ExcelUtils;
+import br.com.rsinet.hub.appium.Utility.MassaDados;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.touch.offset.PointOption;
 
 public class TesteCadastrar {
 
 	private AndroidDriver<MobileElement> driver;
 	private PageCadastro cadastro;
-	private TouchAction scroll;
 	private MassaDados dados;
 	private ExtentTest test;
 
@@ -44,7 +41,6 @@ public class TesteCadastrar {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		cadastro = new PageCadastro(driver);
-		scroll = new TouchAction(driver);
 		dados = new MassaDados();
 	}
 
@@ -52,42 +48,37 @@ public class TesteCadastrar {
 	public void testeCadastroSucesso() throws Exception {
 
 		test = ExtendReport.createTest("CadastroSucesso");
+
 		cadastro.clicarMenu();
 		cadastro.clicarLogin();
 		cadastro.clicarCadastrar();
-
+		
 		String nomeUsuario = dados.getNomeUsuario(6);
 		dados.setNomeUsuario(nomeUsuario);
 		cadastro.preencherNomeDeUsuario(nomeUsuario);
 		cadastro.preencherEmail(dados.getEmail());
 		cadastro.preencherSenha(dados.getSenha());
 
-		scroll.press(PointOption.point(1040, 1143)).moveTo(PointOption.point(1038, 419)).perform();
-
+		driver.hideKeyboard();
 		cadastro.preencherConfirmacaoSenha(dados.getSenha());
 
-		scroll.press(PointOption.point(1040, 1143)).moveTo(PointOption.point(1038, 419)).perform();
+		driver.hideKeyboard();
+		cadastro.scrollVisible("ADDRESS");
 
 		cadastro.preencherPrimeiroNome(dados.getPrimeiroNome());
 		cadastro.preencherUltimoNome(dados.getUltimoNome());
 		cadastro.preencherNumeroTelefone(dados.getNumeroTelefone());
 
-		scroll.press(PointOption.point(1040, 1143)).moveTo(PointOption.point(1038, 419)).perform();
-
 		driver.hideKeyboard();
+		cadastro.scrollVisible("REGISTER");
 
 		cadastro.clicarLocalizacao();
 		cadastro.clicarConfirmaLocalizacao();
 		cadastro.preencherCidade(dados.getCidade());
 
 		cadastro.clicarPais();
-
-		scroll.press(PointOption.point(922, 1612)).moveTo(PointOption.point(967, 274)).perform();
-		scroll.press(PointOption.point(922, 1612)).moveTo(PointOption.point(943, 274)).perform();
-		scroll.press(PointOption.point(922, 1612)).moveTo(PointOption.point(943, 274)).perform();
-
-		cadastro.clicarConfirmaPais();
-
+		cadastro.scrollAndClick("Brazil");
+		
 		cadastro.clicarEmCadastrar();
 		cadastro.clicarMenu();
 
@@ -102,38 +93,33 @@ public class TesteCadastrar {
 		cadastro.clicarLogin();
 		cadastro.clicarCadastrar();
 
-		cadastro.preencherNomeDeUsuario(dados.getNomeUsuario(16));
+		String nomeUsuario = dados.getNomeUsuario(16);
+		dados.setNomeUsuario(nomeUsuario);
+		cadastro.preencherNomeDeUsuario(nomeUsuario);
 		cadastro.preencherEmail(dados.getEmail());
 		cadastro.preencherSenha(dados.getSenha());
 
-		scroll.press(PointOption.point(1040, 1143)).moveTo(PointOption.point(1038, 419)).perform();
-
+		driver.hideKeyboard();
 		cadastro.preencherConfirmacaoSenha(dados.getSenha());
 
-		scroll.press(PointOption.point(1040, 1143)).moveTo(PointOption.point(1038, 419)).perform();
+		driver.hideKeyboard();
+		cadastro.scrollVisible("ADDRESS");
 
 		cadastro.preencherPrimeiroNome(dados.getPrimeiroNome());
 		cadastro.preencherUltimoNome(dados.getUltimoNome());
 		cadastro.preencherNumeroTelefone(dados.getNumeroTelefone());
 
-		scroll.press(PointOption.point(1040, 1143)).moveTo(PointOption.point(1038, 419)).perform();
-
 		driver.hideKeyboard();
+		cadastro.scrollVisible("REGISTER");
 
 		cadastro.clicarLocalizacao();
 		cadastro.clicarConfirmaLocalizacao();
 		cadastro.preencherCidade(dados.getCidade());
 
 		cadastro.clicarPais();
+		cadastro.scrollAndClick("Brazil");
 
-		scroll.press(PointOption.point(922, 1612)).moveTo(PointOption.point(967, 274)).perform();
-		scroll.press(PointOption.point(922, 1612)).moveTo(PointOption.point(943, 274)).perform();
-
-		cadastro.clicarConfirmaPais();
-
-
-		scroll.press(PointOption.point(1038, 266)).moveTo(PointOption.point(1019, 1690)).perform();
-		scroll.press(PointOption.point(1038, 266)).moveTo(PointOption.point(1019, 1690)).perform();
+		cadastro.scrollVisible("ACCOUNT DETAILS");
 
 		Assert.assertTrue(cadastro.validaUsuarioErrado().equals("Use up to 15 characters"), "Falha no nome de usuário");
 	}
@@ -149,4 +135,7 @@ public class TesteCadastrar {
 		ExtendReport.endReport();
 	}
 
+	
+	
+	
 }
