@@ -27,6 +27,7 @@ public class TesteCadastrar {
 	private PageCadastro cadastro;
 	private MassaDados dados;
 	private ExtentTest test;
+	private String nomeUsuario;
 
 	@BeforeTest
 	public void report() {
@@ -53,8 +54,7 @@ public class TesteCadastrar {
 		cadastro.clicarLogin();
 		cadastro.clicarCadastrar();
 		
-		String nomeUsuario = dados.getNomeUsuario(6);
-		dados.setNomeUsuario(nomeUsuario);
+		nomeUsuario = dados.getNomeUsuario(6);
 		cadastro.preencherNomeDeUsuario(nomeUsuario);
 		cadastro.preencherEmail(dados.getEmail());
 		cadastro.preencherSenha(dados.getSenha());
@@ -63,14 +63,20 @@ public class TesteCadastrar {
 		cadastro.preencherConfirmacaoSenha(dados.getSenha());
 
 		driver.hideKeyboard();
-		cadastro.scrollVisible("ADDRESS");
 
 		cadastro.preencherPrimeiroNome(dados.getPrimeiroNome());
 		cadastro.preencherUltimoNome(dados.getUltimoNome());
+
+		driver.hideKeyboard();
+
+		cadastro.scroll(0.9, 0.0);
+
+		driver.hideKeyboard();
+
 		cadastro.preencherNumeroTelefone(dados.getNumeroTelefone());
 
 		driver.hideKeyboard();
-		cadastro.scrollVisible("REGISTER");
+		cadastro.scroll(0.9, 0.0);
 
 		cadastro.clicarLocalizacao();
 		cadastro.clicarConfirmaLocalizacao();
@@ -93,8 +99,7 @@ public class TesteCadastrar {
 		cadastro.clicarLogin();
 		cadastro.clicarCadastrar();
 
-		String nomeUsuario = dados.getNomeUsuario(16);
-		dados.setNomeUsuario(nomeUsuario);
+		nomeUsuario = dados.getNomeUsuario(16);
 		cadastro.preencherNomeDeUsuario(nomeUsuario);
 		cadastro.preencherEmail(dados.getEmail());
 		cadastro.preencherSenha(dados.getSenha());
@@ -103,14 +108,20 @@ public class TesteCadastrar {
 		cadastro.preencherConfirmacaoSenha(dados.getSenha());
 
 		driver.hideKeyboard();
-		cadastro.scrollVisible("ADDRESS");
 
 		cadastro.preencherPrimeiroNome(dados.getPrimeiroNome());
 		cadastro.preencherUltimoNome(dados.getUltimoNome());
+
+		driver.hideKeyboard();
+
+		cadastro.scroll(0.9, 0.0);
+
+		driver.hideKeyboard();
+
 		cadastro.preencherNumeroTelefone(dados.getNumeroTelefone());
 
 		driver.hideKeyboard();
-		cadastro.scrollVisible("REGISTER");
+		cadastro.scroll(0.9, 0.0);
 
 		cadastro.clicarLocalizacao();
 		cadastro.clicarConfirmaLocalizacao();
