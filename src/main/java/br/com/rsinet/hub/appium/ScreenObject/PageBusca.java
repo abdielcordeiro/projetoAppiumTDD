@@ -69,7 +69,8 @@ public class PageBusca {
 	}
 
 	public void selecionaTipo(String tipo) throws InterruptedException {
-		// Thread.sleep(1000);
+		WebDriverWait wait = new WebDriverWait(driver, 40);
+		wait.until(ExpectedConditions.visibilityOf(escolherTipo(tipo)));
 		escolherTipo(tipo).click();
 	}
 
@@ -155,7 +156,7 @@ public class PageBusca {
 
 	private MobileElement bntDedo() {
 		MobileElement el2 = driver.findElementById("android:id/button2");
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, 40);
 		wait.until(ExpectedConditions.visibilityOf(el2));
 		return el2;
 	}
@@ -164,11 +165,9 @@ public class PageBusca {
 	 * Corrigir o Thread Sleep
 	 */
 	public void clicarAutenticacaoDedo() throws InterruptedException {
-		System.out.println(bntDedo().getText());
+		//System.out.println(bntDedo().getText());
 		if (bntDedo().getText().equals("NO")) {
 			bntDedo().click();
-		} else {
-			System.out.println("Botao inexistente");
 		}
 
 	}
