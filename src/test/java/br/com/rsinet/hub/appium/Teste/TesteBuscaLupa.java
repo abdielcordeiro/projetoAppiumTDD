@@ -2,6 +2,7 @@ package br.com.rsinet.hub.appium.Teste;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -18,12 +19,11 @@ import br.com.rsinet.hub.appium.Utility.Constant;
 import br.com.rsinet.hub.appium.Utility.DriverManager;
 import br.com.rsinet.hub.appium.Utility.ExcelUtils;
 import br.com.rsinet.hub.appium.Utility.MassaDados;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public class TesteBuscaLupa {
 
-	private AndroidDriver<MobileElement> driver;
+	private AndroidDriver<WebElement> driver;
 	private PageBusca busca;
 	private MassaDados dados;
 	private ExtentTest test;

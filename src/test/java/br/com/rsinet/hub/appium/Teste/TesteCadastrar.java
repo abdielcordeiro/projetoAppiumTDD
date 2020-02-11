@@ -2,6 +2,7 @@ package br.com.rsinet.hub.appium.Teste;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -18,12 +19,11 @@ import br.com.rsinet.hub.appium.Utility.Constant;
 import br.com.rsinet.hub.appium.Utility.DriverManager;
 import br.com.rsinet.hub.appium.Utility.ExcelUtils;
 import br.com.rsinet.hub.appium.Utility.MassaDados;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public class TesteCadastrar {
 
-	private AndroidDriver<MobileElement> driver;
+	private AndroidDriver<WebElement> driver;
 	private PageCadastro cadastro;
 	private MassaDados dados;
 	private ExtentTest test;
@@ -53,7 +53,7 @@ public class TesteCadastrar {
 		cadastro.clicarMenu();
 		cadastro.clicarLogin();
 		cadastro.clicarCadastrar();
-		
+
 		nomeUsuario = dados.getNomeUsuario(6);
 		cadastro.preencherNomeDeUsuario(nomeUsuario);
 		cadastro.preencherEmail(dados.getEmail());
@@ -63,15 +63,13 @@ public class TesteCadastrar {
 		cadastro.preencherConfirmacaoSenha(dados.getSenha());
 
 		driver.hideKeyboard();
-
 		cadastro.preencherPrimeiroNome(dados.getPrimeiroNome());
 		cadastro.preencherUltimoNome(dados.getUltimoNome());
 
 		driver.hideKeyboard();
-
 		cadastro.scroll(0.9, 0.0);
 
-		driver.hideKeyboard();
+		//driver.hideKeyboard();
 
 		cadastro.preencherNumeroTelefone(dados.getNumeroTelefone());
 
@@ -84,7 +82,7 @@ public class TesteCadastrar {
 
 		cadastro.clicarPais();
 		cadastro.scrollAndClick("Brazil");
-		
+
 		cadastro.clicarEmCadastrar();
 		cadastro.clicarMenu();
 
@@ -146,7 +144,7 @@ public class TesteCadastrar {
 		ExtendReport.endReport();
 	}
 
-	
-	
-	
+
+
+
 }

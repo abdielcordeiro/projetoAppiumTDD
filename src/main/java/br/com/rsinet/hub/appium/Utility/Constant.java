@@ -2,13 +2,15 @@ package br.com.rsinet.hub.appium.Utility;
 
 public class Constant {
 
+	public static final int wait = 40;
+
 	public static final String URL = "http://127.0.0.1:4723/wd/hub";
 
 	public static final String Pacote = "com.Advantage.aShopping";
 
 	public static final String Ativador = ".SplashActivity";
 
-	public static final String Path_TestData = "D:\\Documentos\\eclipseWorkespace\\projetoAppiumTDD\\src\\main\\java\\br\\com\\rsinet\\hub\\appium\\TestData\\";
+	public static final String Path_TestData = "..\\projetoAppiumTDD\\src\\main\\java\\br\\com\\rsinet\\hub\\appium\\TestData\\";
 
 	public static final String File_TestData = "BancoDados.xlsx";
 
