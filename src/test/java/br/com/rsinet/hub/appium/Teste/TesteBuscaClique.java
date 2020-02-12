@@ -15,7 +15,6 @@ import com.aventstack.extentreports.ExtentTest;
 
 import br.com.rsinet.hub.appium.ExtendReport.ExtendReport;
 import br.com.rsinet.hub.appium.ScreenObject.PageBusca;
-import br.com.rsinet.hub.appium.ScreenObject.PageCadastro;
 import br.com.rsinet.hub.appium.Utility.Constant;
 import br.com.rsinet.hub.appium.Utility.DriverManager;
 import br.com.rsinet.hub.appium.Utility.ExcelUtils;
@@ -26,7 +25,6 @@ public class TesteBuscaClique {
 
 	private AndroidDriver<WebElement> driver;
 	private PageBusca busca;
-	private PageCadastro cadastro;
 	private MassaDados dados;
 	private ExtentTest test;
 
@@ -43,7 +41,6 @@ public class TesteBuscaClique {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		busca = new PageBusca(driver);
-		cadastro = new PageCadastro(driver);
 		dados = new MassaDados();
 	}
 
@@ -67,35 +64,18 @@ public class TesteBuscaClique {
 		test = ExtendReport.createTest("BuscaCliqueFalha");
 
 		/*
-		 * Login
-		 */
-		cadastro.clicarMenu();
-		cadastro.clicarLogin();
-		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Cadastro");
-		busca.inserirLogin(dados.getNomeUsuarioExcel());
-		busca.inserirSenha(dados.getSenha());
-		busca.botaoLogar();
-		busca.clicarAutenticacaoDedo();
-
-		/*
 		 * Navegação para o produto
 		 */
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Pesquisa");
 		busca.selecionaTipo(dados.getTipoProduto());
-		busca.selecionaProduto(dados.getNomeProduto().toUpperCase());
-		busca.botaoAdicionar();
 
-		for (int i = 0; i < dados.getQuantidadeProduto() - 1; i++) {
-			busca.botaoMais();
-		}
+		busca.clicarBotaoFiltro();
+		busca.botaoFuncionalidade();
+		busca.botaoResolucao();
+		busca.botaoMemoria();
+		busca.botaoAplicar();
 
-		busca.aceitarQuantidade();
-		busca.botaoAdicionarCarrinho();
-
-		busca.entrarNoCarrinho();
-
-		Assert.assertTrue(busca.validarQuantidadeProduto() != dados.getQuantidadeProduto(),
-				"Quantidade diferente da quantidade pedida");
+		Assert.assertTrue(busca.mensagemProdutoClique().equals("- No results -"), "Produto não encontrado");
 
 	}
 

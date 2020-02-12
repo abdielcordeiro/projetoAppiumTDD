@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import br.com.rsinet.hub.appium.Utility.Constant;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
@@ -33,7 +34,7 @@ public class PageCadastro {
 	}
 
 	public void clicarMenu() throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(driver, 60);
+		WebDriverWait wait = new WebDriverWait(driver, Constant.wait);
 		wait.until(ExpectedConditions.visibilityOf(esperaCadastrar()));
 		botaoMenu().click();
 	}
