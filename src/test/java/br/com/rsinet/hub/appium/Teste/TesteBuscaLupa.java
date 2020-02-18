@@ -15,6 +15,7 @@ import com.aventstack.extentreports.ExtentTest;
 
 import br.com.rsinet.hub.appium.ExtendReport.ExtendReport;
 import br.com.rsinet.hub.appium.ScreenObject.PageBusca;
+import br.com.rsinet.hub.appium.ScreenObject.PageHome;
 import br.com.rsinet.hub.appium.Utility.Constant;
 import br.com.rsinet.hub.appium.Utility.DriverManager;
 import br.com.rsinet.hub.appium.Utility.ExcelUtils;
@@ -25,6 +26,7 @@ public class TesteBuscaLupa {
 
 	private AndroidDriver<WebElement> driver;
 	private PageBusca busca;
+	private PageHome home;
 	private MassaDados dados;
 	private ExtentTest test;
 
@@ -50,9 +52,9 @@ public class TesteBuscaLupa {
 
 		test = ExtendReport.createTest("BuscaLupaSucesso");
 
-		busca.clicarLupa();
-		busca.inserirBusca(dados.getNomeProduto());
-		busca.clicarLupa();
+		home.clicarLupa();
+		home.inserirBusca(dados.getNomeProduto());
+		home.clicarLupa();
 		busca.selecionarProduto();
 
 		Assert.assertTrue(busca.retornaNomeProduto(dados.getNomeProduto().toUpperCase()).equals(dados.getNomeProduto().toUpperCase()),
@@ -64,9 +66,9 @@ public class TesteBuscaLupa {
 	public void testeBuscaLupaFalha() throws Exception {
 		test = ExtendReport.createTest("BuscaLupaFalha");
 
-		busca.clicarLupa();
-		busca.inserirBusca(dados.getNomeProdutoFalha());
-		busca.clicarLupa();
+		home.clicarLupa();
+		home.inserirBusca(dados.getNomeProdutoFalha());
+		home.clicarLupa();
 
 		Assert.assertTrue(
 				busca.mensagemDeErro().equals("- No results for " + "\"" + dados.getNomeProdutoFalha() + "\" -"),

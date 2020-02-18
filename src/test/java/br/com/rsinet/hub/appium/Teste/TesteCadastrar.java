@@ -15,6 +15,8 @@ import com.aventstack.extentreports.ExtentTest;
 
 import br.com.rsinet.hub.appium.ExtendReport.ExtendReport;
 import br.com.rsinet.hub.appium.ScreenObject.PageCadastro;
+import br.com.rsinet.hub.appium.ScreenObject.PageHome;
+import br.com.rsinet.hub.appium.ScreenObject.PageLogin;
 import br.com.rsinet.hub.appium.Utility.Constant;
 import br.com.rsinet.hub.appium.Utility.DriverManager;
 import br.com.rsinet.hub.appium.Utility.ExcelUtils;
@@ -25,6 +27,8 @@ public class TesteCadastrar {
 
 	private AndroidDriver<WebElement> driver;
 	private PageCadastro cadastro;
+	private PageHome home;
+	private PageLogin login;
 	private MassaDados dados;
 	private ExtentTest test;
 	private String nomeUsuario;
@@ -50,9 +54,9 @@ public class TesteCadastrar {
 
 		test = ExtendReport.createTest("CadastroSucesso");
 
-		cadastro.clicarMenu();
-		cadastro.clicarLogin();
-		cadastro.clicarCadastrar();
+		home.clicarMenu();
+		home.clicarLogin();
+		login.clicarCadastrar();
 
 		nomeUsuario = dados.getNomeUsuario(6);
 		cadastro.preencherNomeDeUsuario(nomeUsuario);
@@ -84,7 +88,7 @@ public class TesteCadastrar {
 		cadastro.scrollAndClick("Brazil");
 
 		cadastro.clicarEmCadastrar();
-		cadastro.clicarMenu();
+		home.clicarMenu();
 
 		Assert.assertTrue(cadastro.validaCadastro().equals(nomeUsuario), "Usuário cadastrado com sucesso");
 	}
@@ -93,9 +97,9 @@ public class TesteCadastrar {
 	public void testeCadastroFalha() throws Exception {
 		test = ExtendReport.createTest("CadastroFalha");
 
-		cadastro.clicarMenu();
-		cadastro.clicarLogin();
-		cadastro.clicarCadastrar();
+		home.clicarMenu();
+		home.clicarLogin();
+		login.clicarCadastrar();
 
 		nomeUsuario = dados.getNomeUsuario(16);
 		cadastro.preencherNomeDeUsuario(nomeUsuario);
